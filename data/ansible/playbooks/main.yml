@@ -1,0 +1,23 @@
+- name: Ping servers
+  hosts: all
+  gather_facts: no
+  roles:
+    - ../roles/ping_servers
+
+- name: Print "hello world"
+  hosts: all
+  gather_facts: no
+  roles:
+    - ../roles/print_hello_world
+
+- name: Install MySQL
+  hosts: dbservers
+  gather_facts: yes
+  roles:
+    - ../roles/install_mysql
+
+- name: Install PHP and Apache
+  hosts: webservers
+  gather_facts: yes
+  roles:
+    - ../roles/install_php_apache

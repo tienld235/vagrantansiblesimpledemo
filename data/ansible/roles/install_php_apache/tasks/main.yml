@@ -1,0 +1,13 @@
+- name: Install PHP and Apache
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - apache2
+    - php
+    - libapache2-mod-php
+
+- name: Start Apache service
+  service:
+    name: apache2
+    state: started
